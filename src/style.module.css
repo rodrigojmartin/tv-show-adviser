@@ -9,17 +9,13 @@
 
  .header {
     flex: 2;
-    background-color: red;
-
  }
 
  .tv_show_detail {
     flex: 4; 
-    background-color: blue;
  }
 
  .recommended_tv_shows {
     flex: 2;
-    background-color: green;
 
  }
