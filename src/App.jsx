@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MovieAPI } from "./api/movie";
 import { BACKDROP_BASE_URL } from "./config";
+import { MovieDetail } from "./components/MovieDetail/MovieDetail";
 import s from "./style.module.css";
 
 
@@ -39,7 +40,9 @@ export function App() {
                     
                 </div>
             </div>
-            <div className={s.tv_show_detail}>TV Show Details</div>
+            <div className={s.movie_detail}>
+              {currentMovie && <MovieDetail movie={currentMovie}/>} 
+            </div>
             <div className={s.recommended_tv_shows}>Recommended TV Shows</div>
         </div>
     );
