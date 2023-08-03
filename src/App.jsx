@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { MovieAPI } from "./api/movie";
 import { BACKDROP_BASE_URL } from "./config";
 import { MovieDetail } from "./components/MovieDetail/MovieDetail";
+import { Logo } from "./components/Logo/Logo";
+import logoImg from "./assets/images/logo.png";
 import s from "./style.module.css";
 
 
@@ -31,8 +33,7 @@ export function App() {
             <div className={s.header}>
                 <div className="row">
                     <div className="col-4">
-                        <div>LOGO</div>
-                        <div>SUBTITLES</div>
+                        <Logo img={logoImg} title="Pelikulon" subtitle="Find a movie you may like"/>
                     </div>
                     <div className="col-md-12 col-lg-4">
                         <input style={{width: "100%"}}type="text"/>
@@ -43,7 +44,7 @@ export function App() {
             <div className={s.movie_detail}>
               {currentMovie && <MovieDetail movie={currentMovie}/>} 
             </div>
-            <div className={s.recommended_tv_shows}>Recommended TV Shows</div>
+            <div className={s.recommended_movies}>Recommended Movies</div>
         </div>
     );
 }
