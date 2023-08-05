@@ -5,6 +5,7 @@ import { MovieDetail } from "./components/MovieDetail/MovieDetail";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
 import s from "./style.module.css";
+import { MovieListItem } from "./components/MovieListItem/MovieListItem";
 
 
 
@@ -44,7 +45,11 @@ export function App() {
             <div className={s.movie_detail}>
               {currentMovie && <MovieDetail movie={currentMovie}/>} 
             </div>
-            <div className={s.recommended_movies}>Recommended Movies</div>
+            <div className={s.recommended_movies}>
+                {currentMovie && <MovieListItem movie={currentMovie} onClick={(movie)=> {
+                    console.log("I've been clicked", movie)
+                }}/>}
+            </div>
         </div>
     );
 }
