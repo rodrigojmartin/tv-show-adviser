@@ -6,6 +6,9 @@ import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
 import s from "./style.module.css";
 import { MovieListItem } from "./components/MovieListItem/MovieListItem";
+import { MovieList } from "./components/MovieList/MovieList";
+
+
 
 
 
@@ -40,8 +43,6 @@ export function App() {
         }
     }, [currentMovie]);
 
-    console.log(recommendationList);
-
     return(
         <div className={s.main_container}
         style={{background: currentMovie
@@ -63,9 +64,7 @@ export function App() {
               {currentMovie && <MovieDetail movie={currentMovie}/>} 
             </div>
             <div className={s.recommended_movies}>
-                {currentMovie && <MovieListItem movie={currentMovie} onClick={(movie)=> {
-                    console.log("I've been clicked", movie)
-                }}/>}
+                {currentMovie && <MovieList movieList={recommendationList} />}
             </div>
         </div>
     );
