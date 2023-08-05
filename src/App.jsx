@@ -12,18 +12,35 @@ import { MovieListItem } from "./components/MovieListItem/MovieListItem";
 export function App() {
 
     const [currentMovie, setCurrentMovie] = useState();
+    const [recommendationList, setRecommendationList] = useState([]);
+    
     async function fetchPopularMovies() {
         const popularMovieList = await MovieAPI.fetchPopulars();
         if (popularMovieList.length > 0) {
             setCurrentMovie(popularMovieList[0]);
         }
     }
+
+    async function fetchRecommendations(movieId) {
+        const recommendationListResponse = await MovieAPI.fetchRecommendations(movieId);
+        if (recommendationListResponse.length > 0) {
+            setRecommendationList(recommendationListResponse.slice(0,10));
+        }
+    }
+
+
     useEffect(() =>{
         fetchPopularMovies();
         
     }, []);
 
-    console.log(currentMovie);
+    useEffect(() => {
+        if (currentMovie) {
+            fetchRecommendations(currentMovie.id);
+        }
+    }, [currentMovie]);
+
+    console.log(recommendationList);
 
     return(
         <div className={s.main_container}
