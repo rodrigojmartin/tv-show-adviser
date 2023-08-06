@@ -1,7 +1,7 @@
 import { MovieListItem } from "../MovieListItem/MovieListItem";
 import s from "./style.module.css";
 
-export function MovieList({movieList}) {
+export function MovieList({movieList, onClickItem}) {
     return (
         <div>
             <div className={s.title}>You'll probably like: </div>
@@ -11,7 +11,7 @@ export function MovieList({movieList}) {
                             <span key={movie.id} className={s.movie_item}>
                                 <MovieListItem 
                                 movie={movie}
-                                onClick={() => console.log("To do")}
+                                onClick={onClickItem}
                                 />
                             </span>
                         );

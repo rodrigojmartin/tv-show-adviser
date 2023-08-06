@@ -31,6 +31,10 @@ export function App() {
         }
     }
 
+    function updateCurrentMovie(movie) {
+        setCurrentMovie(movie);
+    }
+
 
     useEffect(() =>{
         fetchPopularMovies();
@@ -64,7 +68,11 @@ export function App() {
               {currentMovie && <MovieDetail movie={currentMovie}/>} 
             </div>
             <div className={s.recommended_movies}>
-                {currentMovie && <MovieList movieList={recommendationList} />}
+                {currentMovie && 
+                <MovieList 
+                    onClickItem={updateCurrentMovie}
+                    movieList={recommendationList} 
+                />}
             </div>
         </div>
     );
