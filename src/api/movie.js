@@ -18,4 +18,12 @@ export class MovieAPI {
     return response.data.results;
     //return FAKE_RECOMMENDATIONS;
   }
+
+  static async fetchByTitle(title) {
+    const response = await axios.get(
+      `${BASE_URL}search/movie${API_KEY_PARAM}&query=${title}`
+    );
+    return response.data.results;
+    //return FAKE_RECOMMENDATIONS;
+  }
 }

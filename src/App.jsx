@@ -7,6 +7,7 @@ import logoImg from "./assets/images/logo.png";
 import s from "./style.module.css";
 import { MovieListItem } from "./components/MovieListItem/MovieListItem";
 import { MovieList } from "./components/MovieList/MovieList";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 
 
 
@@ -35,6 +36,13 @@ export function App() {
         setCurrentMovie(movie);
     }
 
+    async function fetchByTitle(title) {
+        const searchResponse = await MovieAPI.fetchByTitle(title);
+        if (searchResponse.length > 0) {
+            setCurrentMovie(searchResponse[0]);
+        }
+    };
+
 
     useEffect(() =>{
         fetchPopularMovies();
@@ -59,7 +67,7 @@ export function App() {
                         <Logo img={logoImg} title="Pelikulon" subtitle="Find a movie you may like"/>
                     </div>
                     <div className="col-md-12 col-lg-4">
-                        <input style={{width: "100%"}}type="text"/>
+                       <SearchBar onSubmit={fetchByTitle}/>
                     </div>
                     
                 </div>
