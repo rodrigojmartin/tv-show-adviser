@@ -5,7 +5,6 @@ import { MovieDetail } from "./components/MovieDetail/MovieDetail";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
 import s from "./style.module.css";
-import { MovieListItem } from "./components/MovieListItem/MovieListItem";
 import { MovieList } from "./components/MovieList/MovieList";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 

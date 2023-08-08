@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Env Variables
+
+You need to create an .env file with an API key for The Movie Database for the project to work locally
+REACT_APP_API_KEY_PARAM
+
 ## Available Scripts
 
 In the project directory, you can run:
